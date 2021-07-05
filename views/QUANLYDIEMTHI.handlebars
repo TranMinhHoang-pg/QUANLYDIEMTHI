@@ -1,0 +1,166 @@
+<div class="container mt-4">
+    <h1>Quản lý điểm thi</h1>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-light mt-5 mb-2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Thêm
+    </button>
+
+    <!-- Modal THÊM-->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog p-3 mb-2 bg-dark text-white">
+            <div class="modal-content p-3 mb-2 bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">THÊM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 mb-2 bg-dark text-white ">
+                    <form method="POST" action="/QUANLYDIEMTHI/create">
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" placeholder="Nhập họ tên" name="ten">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm toán" name="diemtoan">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm ngữ văn"
+                                    name="diemnguvan">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm tiếng anh"
+                                    name="diemtienganh">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm lý" name="diemly">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm hóa" name="diemhoa">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm sinh" name="diemsinh">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm lichh sử"
+                                    name="diemlichsu">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm địa lý"
+                                    name="diemdialy">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" placeholder="Nhập điểm GDCD"
+                                    name="diemgiaoduccongdan">
+                            </div>
+
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-outline-light mt-4" id="btn-login">THÊM</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Điểm toán</th>
+                <th scope="col">Điểm văn</th>
+                <th scope="col">Điểm tiếng anh</th>
+                <th scope="col">Điểm lý</th>
+                <th scope="col">Điểm hóa</th>
+                <th scope="col">Điểm sinh</th>
+                <th scope="col">Điểm lịch sử</th>
+                <th scope="col">Điểm địa lý</th>
+                <th scope="col">Điểm GDCD</th>
+                <th scope="col">Thao tác</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each diemthis}}
+            <tr>
+                <th class="align-middle text-center" scope="row">{{sum @index 1}}</th>
+                <td >
+                    <p class="text-uppercase fs-6">{{this.ten}}</p>
+                </td>
+                <td class="align-middle text-center">{{this.diemtoan}}</td>
+                <td class="align-middle text-center">{{this.diemnguvan}}</td>
+                <td class="align-middle text-center">{{this.diemtienganh}}</td>
+                <td class="align-middle text-center">{{this.diemly}}</td>
+                <td class="align-middle text-center">{{this.diemhoa}}</td>
+                <td class="align-middle text-center">{{this.diemsinh}}</td>
+                <td class="align-middle text-center">{{this.diemlichsu}}</td>
+                <td class="align-middle text-center">{{this.diemdialy}}</td>
+                <td class="align-middle text-center">{{this.diemgiaoduccongdan}}</td>
+                <td class="align-middle text-center">
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-outline-warning"><a class="a-default"
+                                href="/QUANLYDIEMTHI/{{this._id}}/edit">Sửa</a></button>
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal" data-bs-id="{{this._id}}">
+                            Xóa
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal xóa-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content p-3 mb-2 bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa thông tin</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                <button id="deleteButton" type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form method="POST" name="deleteForm"></form>
+
+<script>
+
+    var ID;
+    const deleteButton = document.getElementById('deleteButton')
+    const deleteForm = document.forms['deleteForm']
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteModal = document.getElementById('deleteModal')
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget
+            // Extract info from data-bs-* attributes
+            ID = button.getAttribute('data-bs-id')
+
+        })
+    })
+
+    deleteButton.addEventListener('click', () => {
+        deleteForm.action = "/QUANLYDIEMTHI/" + ID + "/trash?_method=DELETE"
+        deleteForm.submit();
+    })
+</script>

@@ -1,0 +1,43 @@
+<div class="container p-3 mb-2 bg-dark text-white w-25">
+    <h1>Chỉnh sửa</h1>
+    <button type="button" class="btn btn-secondary btn-lg mb-4"><a class="a-default" href="/QUANLYDIEMTHI">Quay lại</a></button>
+    <form method="POST" action="/QUANLYDIEMTHI/{{diemthi._id}}?_method=PUT">
+        <div class="row g-3">
+            <div class="col-sm-12">
+                <input value="{{diemthi.ten}}" type="text" class="form-control" placeholder="Nhập họ tên" name="ten">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemtoan}}" type="number" class="form-control" placeholder="Nhập điểm toán" name="diemtoan">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemnguvan}}" type="number" class="form-control" placeholder="Nhập điểm ngữ văn" name="diemnguvan">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemtienganh}}" type="number" class="form-control" placeholder="Nhập điểm tiếng anh" name="diemtienganh">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemly}}" type="number" class="form-control" placeholder="Nhập điểm lý" name="diemly">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemhoa}}" type="number" class="form-control" placeholder="Nhập điểm hóa" name="diemhoa">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemsinh}}" type="number" class="form-control" placeholder="Nhập điểm sinh" name="diemsinh">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemlichsu}}" type="number" class="form-control" placeholder="Nhập điểm lichh sử" name="diemlichsu">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemdialy}}" type="number" class="form-control" placeholder="Nhập điểm địa lý" name="diemdialy">
+            </div>
+            <div class="col-sm-6">
+                <input value="{{diemthi.diemgiaoduccongdan}}" type="number" class="form-control" placeholder="Nhập điểm GDCD" name="diemgiaoduccongdan">
+            </div>
+
+        </div>
+
+
+
+        <button type="submit" class="btn btn-secondary btn-lg mt-4" id="btn-login">Lưu</button>
+    </form>
+</div>

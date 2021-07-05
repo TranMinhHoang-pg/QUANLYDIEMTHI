@@ -1,0 +1,59 @@
+<div class="container">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-light position-absolute top-50 start-50 btn-lg translate-middle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Đăng nhập
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content  p-3 mb-2 bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/QUANLYDIEMTHI">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-light" id="btn-login">Đăng nhập</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const taiKhoanHeThong = '123@gmail.com';
+    const matkhauHethong = '123';
+
+    var taikhoanNhap = document.getElementById('inputEmail3');
+    var matkhauNhap = document.getElementById('inputPassword3');
+    const btnLogin = document.getElementById('btn-login');
+
+    btnLogin.addEventListener('click', (e) => {
+        if (taiKhoanHeThong != taikhoanNhap.value || matkhauHethong != matkhauNhap.value) {
+            e.preventDefault();
+            alert('sai thông tin')
+        }
+    })
+
+
+
+</script>
